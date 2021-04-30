@@ -42,13 +42,13 @@ Candidate pixels acquired closer to a defined acquisition day of year are ranked
 This scoring function defines the maximum percentage of a scene covered by clouds to be accepted in the BAP image compositing process. Defining a value of 70% implies that only those scenes with a cloud cover less than 70% will be used.
 
 *Distance to clouds and cloud shadows*
-Pixels identified to contain clouds and shadows by the QA mask are not considered in the BAP image compositing process. This scoring function decreases the score of a pixel if this is in the proximity of a cloud or cloud shadow.
+Pixels identified to contain clouds and shadows by the QA mask are not considered in the BAP image compositing process. This scoring function decreases the score of a pixel if this is in the proximity of a cloud or cloud shadow. Units are meters.
 
 ### *Atmospheric opacity*
 This scoring function ranks pixels based on their atmospheric opacity values, which are indicative of hazy imagery. Max opacity: Pixels with opacity values that exceed a defined haze expectation are excluded [0.3 by default]. Min opacity: Pixels with opacity values lower than a defined value [0.2 by default] get the maximum score. Pixels with values in between these limits are scored following the functions defined by Griffiths et al., 2013).
 
 ### *Landsat-7 ETM+ SLC-off penalty*
-This scoring function penalizes images acquired following the ETM+ Scan Line Corrector malfunction (SLC-off). The larger the value the larger the penalty. This scoring element can be used to ensure that TM or OLI data takes precedence over ETM+ post SLC-off. In so doing, users can avoid the inclusion of multiple discontinuous small portions of images being used to produce the BAP image composites, thus reducing the spatial variability of the spectral data. The penalty applied to SLC off image is defined directly proportional to the score. A large score reduces the chance that SLC-off imagery will be used in the composite. A value of 1 prevents SLC-off imagery from being used.
+This scoring function penalizes images acquired following the ETM+ Scan Line Corrector malfunction (SLC-off). The larger the value the larger the penalty. This scoring element can be used to ensure that TM or OLI data takes precedence over ETM+ post SLC-off. In so doing, users can avoid the inclusion of multiple discontinuous small portions of images being used to produce the BAP image composites, thus reducing the spatial variability of the spectral data. The penalty applied to SLC off image is defined directly proportional to the score. A large penalty reduces the chance that SLC-off imagery will be used in the composite. A value of 1 prevents SLC-off imagery from being used.
 
 ## Advanced parameters
 ### *Apply de-spiking algorithm*
